@@ -1,11 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
 <body>
-    <h1>hiiii</h1>
+    <h1>
+        Star Yang
+    </h1>
+    <div id="app">
+        <hr>
+        <label>Message 1</label>
+        <input type="text" v-model="message1" placeholder="message1">
+        {{message1}}<br>
+        <label>Message 2</label>
+        <input type="text" v-model="message2" placeholder="message2">
+        {{message2}}<br>
+        <button @click="greet">Greet Me</button>
+    </div>
+
+    <script>
+        const App = new Vue({
+            el: '#app',
+            data: {
+                message1: 'Hello World',
+                message2: 'Hello World',
+            },
+            methods: {
+                greet: function (event) {
+                    App.message1 = "kia ora";
+                    App.message2 = "kia ora";
+                }
+            }
+        })
+
+    </script>
+
 </body>
+
 </html>
