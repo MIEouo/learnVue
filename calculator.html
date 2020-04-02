@@ -11,14 +11,14 @@
 
     <div id = "calculator">
         <hr>
-        <input type = "text" v-model ="inchnum" placeholder="Inch">
+        <input type = "text" v-model ="inchnum" placeholder="Inch" v-on:input="getinput">
         <label>Inch</label>
         <br>
         <input type="text" v-model="output" placeholder="Centimetre">
         <label>Centimetre</label> 
         <br>
-        <button @click="calculate">Calculate</button>
-        <button @click="clear">AC</button>
+        <!--<button @click="calculate">Calculate</button>-->
+        <button @click="clear">Clear</button>
     </div>
   
 
@@ -30,12 +30,15 @@
                 output:"",
             },
             methods:{
-                calculate: function(event){
-                    Calculator.output = this.inchnum*2.54;
-                },
+                //!--calculate: function(event){
+                //    Calculator.output = this.inchnum*2.54;
+                //},
                 clear: function(event){
                     Calculator.inchnum=null;
                     Calculator.output = null;
+                },
+                getinput:function(event){
+                    Calculator.output = this.inchnum * 2.54;
                 }
             }
             
