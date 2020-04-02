@@ -3,9 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Inchi to CM Calculator</title>
 </head>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <body>
-    
+    <h1>Inch to CM calculator</h1>
+
+    <div id = "calculator">
+        <hr>
+        <input type = "text" v-model ="inchnum" placeholder="Inch">
+        <label>Inch</label>
+        <br>
+        <input type="text" v-model="output" placeholder="Centimetre">
+        <label>Centimetre</label> 
+        <br>
+        <button @click="calculate">Calculate</button>
+        <button @click="clear">AC</button>
+    </div>
+  
+
+    <script>
+        const Calculator = new Vue({
+            el:'#calculator',
+            data:{
+                inchnum :"",
+                output:"",
+            },
+            methods:{
+                calculate: function(event){
+                    Calculator.output = this.inchnum*2.54;
+                },
+                clear: function(event){
+                    Calculator.inchnum=null;
+                    Calculator.output = null;
+
+
+                }
+            }
+            
+        })
+
+    </script>
 </body>
 </html>
